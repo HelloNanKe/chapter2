@@ -19,7 +19,7 @@ import java.util.Properties;
 public class CustomerService {
 
 
-    private static final Logger LOGGER=LoggerFactory.getLogger(CustomerService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
 
     /**
      * 获取客户列表
@@ -27,8 +27,8 @@ public class CustomerService {
      * @return
      */
     public List<Customer> getCustomerList() {
-            String sql="select * from customer";
-            return DatabaseHelper.queryEntityList(Customer.class,sql);
+        String sql = "select * from customer";
+        return DatabaseHelper.queryEntityList(Customer.class, sql);
     }
 
 
@@ -51,27 +51,29 @@ public class CustomerService {
      * @return
      */
     public boolean createCustomer(Map<String, Object> fieldMap) {
-        return DatabaseHelper.insertEntity(Customer.class,fieldMap);
+        return DatabaseHelper.insertEntity(Customer.class, fieldMap);
     }
 
     /**
      * 更新客户
+     *
      * @param id
      * @param fieldMap
      * @return
      */
-    public boolean updateCustomer(long id,Map<String,Object> fieldMap){
-        return DatabaseHelper.updateEntity(Customer.class,id,fieldMap);
+    public boolean updateCustomer(long id, Map<String, Object> fieldMap) {
+        return DatabaseHelper.updateEntity(Customer.class, id, fieldMap);
     }
 
     /**
      * 删除客户
+     *
      * @param id
      * @return
      */
-    public boolean deleteCustomer(long id){
+    public boolean deleteCustomer(long id) {
         //删除客户
-        return DatabaseHelper.deleteEntity(Customer.class,id);
+        return DatabaseHelper.deleteEntity(Customer.class, id);
     }
 
 }
