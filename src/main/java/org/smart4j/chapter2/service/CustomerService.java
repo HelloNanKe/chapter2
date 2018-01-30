@@ -1,17 +1,11 @@
 package org.smart4j.chapter2.service;
 
-import com.sun.tools.javac.code.Attribute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.smart4j.chapter2.helper.DatabaseHelper;
 import org.smart4j.chapter2.model.Customer;
-import org.smart4j.chapter2.util.PropsUtil;
-
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * 提供客户数据服务

@@ -12,7 +12,7 @@ public class Customer implements Serializable {
 
     private String telephone;
 
-    private String eamil;
+    private String email;
 
     private String remark;
 
@@ -48,13 +48,6 @@ public class Customer implements Serializable {
         this.telephone = telephone;
     }
 
-    public String getEamil() {
-        return eamil;
-    }
-
-    public void setEamil(String eamil) {
-        this.eamil = eamil;
-    }
 
     public String getRemark() {
         return remark;
@@ -64,6 +57,14 @@ public class Customer implements Serializable {
         this.remark = remark;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -71,7 +72,7 @@ public class Customer implements Serializable {
                 ", name='" + name + '\'' +
                 ", contact='" + contact + '\'' +
                 ", telephone='" + telephone + '\'' +
-                ", eamil='" + eamil + '\'' +
+                ", email='" + email + '\'' +
                 ", remark='" + remark + '\'' +
                 '}';
     }

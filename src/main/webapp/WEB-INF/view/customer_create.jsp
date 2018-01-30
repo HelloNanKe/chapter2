@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>客户端管理-创建客户</title>
+    <title>客户端管理</title>
 </head>
 <body>
 
