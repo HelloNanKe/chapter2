@@ -12,6 +12,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.smart4j.chapter2.util.PropsUtil;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -29,6 +33,7 @@ public final class DatabaseHelper {
 
     private static final BasicDataSource DATA_SOURCE;
 
+    private static Logger logger=LoggerFactory.getLogger(DatabaseHelper.class);
     static {
         Properties conf = PropsUtil.loadProps("config.properties");
         String driver = conf.getProperty("jdbc.driver");
@@ -66,6 +71,25 @@ public final class DatabaseHelper {
         return conn;
     }
 
+
+    /**
+     * 执行一个sql文件
+     * @param sqlPath 文件名称
+     */
+    public static void executeFile(String sqlPath)  {
+        InputStream is=Thread.currentThread().getContextClassLoader().getResourceAsStream(sqlPath);
+
+        BufferedReader reader=new BufferedReader(new InputStreamReader(is));
+        String sql;
+        try {
+            while ((sql=reader.readLine())!=null){
+                executeUpdate(sql);
+            }
+        } catch (IOException e) {
+            logger.error("执行sql文件失败",e);
+            throw new RuntimeException(e);
+        }
+    }
 
 
     /**
